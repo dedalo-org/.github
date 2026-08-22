@@ -1,0 +1,58 @@
+name: Bug report
+description: Something does not work the way it is documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If this is a security issue — wrong amounts, a leaked key, credit
+        assigned to the wrong person — **stop** and file a
+        [private advisory](https://github.com/dedalo-org/dedalo/security/advisories/new)
+        instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: >
+        The smallest sequence that shows the problem. A failing test is the
+        fastest way to get this fixed.
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Release tag, or the commit SHA you built from.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS and architecture, and whether you are inside the Nix shell.
+      placeholder: "Linux x86_64, nix develop"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: >
+        Relevant output. Redact anything private — never paste a key or a
+        token, even a revoked one.
+      render: text
