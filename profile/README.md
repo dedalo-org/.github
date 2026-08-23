@@ -29,17 +29,33 @@ check the numbers.
 - **CI/CD native** — it runs in your pipeline. No third-party dashboard, no
   invoices.
 
+**→ [dedalo-org.github.io](https://dedalo-org.github.io/)**
+
 ### Projects
 
-- **dedalo** — the protocol: attribution engine, payout planner, settlement
-  backends, and the CLI and GitHub Action that drive them. Private while the
-  distributor contract is unaudited; it opens up before anything can move funds
-  on its own.
+- **[dedalo](https://github.com/dedalo-org/dedalo)** — the protocol:
+  attribution, payout plans, the hash-chained ledger, the claim contract, and
+  the CLI and GitHub Action that drive them. Rust.
+  [API reference](https://dedalo-org.github.io/dedalo/api/).
+- **[dedalo-nvim](https://github.com/dedalo-org/dedalo-nvim)** — attribution
+  where the code is: who earns from the lines in front of you, and who wrote
+  code the round would not pay. Lua.
+- **[discussions](https://github.com/orgs/dedalo-org/discussions)** — questions,
+  ideas and announcements for the organisation.
+
+On-chain settlement is **not live**. The claim contract's arithmetic is proved
+by solc's model checker, and it is unaudited and undeployed; Dedalo holds no
+signing key and never signs. See
+[how funds move](https://github.com/dedalo-org/dedalo/blob/main/docs/settlement-architecture.md).
 
 ### Getting involved
 
 Read [CONTRIBUTING.md](https://github.com/dedalo-org/.github/blob/main/CONTRIBUTING.md)
 for how work lands here, and each repository's own guide for its build and test
-loop. Security issues go through a private advisory on the repository
-concerned, never a public issue — see
+loop. Questions belong in
+[discussions](https://github.com/orgs/dedalo-org/discussions); bugs with a
+reproduction belong in the issues of the repository they affect.
+
+Security issues go through a private advisory on the repository concerned,
+never a public issue and never a discussion — see
 [SECURITY.md](https://github.com/dedalo-org/.github/blob/main/SECURITY.md).
