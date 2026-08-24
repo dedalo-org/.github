@@ -5,6 +5,12 @@
 # always wins, so a project that ever needs its own destination adds one there
 # rather than editing this.
 #
+# At the repository root, beside the other org-wide defaults, and not in
+# `.github/`. A FUNDING.yml inside this repository's own `.github/` folder is
+# read as *this* repository's funding file rather than as the organisation's
+# default — which was measured, not assumed: with it there, only `.github`
+# itself showed the button and `dedalo` did not.
+#
 # The slug is the same one `dedalo.toml` names under `[project]
 # open_collective`, and the same collective the protocol fee is designed to
 # flow to. Keeping them one string is deliberate: a project about funding open
