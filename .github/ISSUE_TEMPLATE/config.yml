@@ -6,3 +6,9 @@ contact_links:
   - name: Ask a question
     url: https://github.com/orgs/dedalo-org/discussions
     about: For anything that is not yet a bug with a reproduction.
+  - name: Read the handbook
+    url: https://dedalo-org.github.io/dedalo/
+    about: How it works, how to run a round, and what the guarantees mean.
+  - name: Fund the work
+    url: https://opencollective.com/dedalo
+    about: Open Collective. Public ledger, so where the money went is readable.

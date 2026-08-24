@@ -1,0 +1,15 @@
+# Where the "Sponsor" button on every dedalo-org repository points.
+#
+# This is an organisation default: it applies to every repository that ships no
+# FUNDING.yml of its own, which today is all of them. A repository's own file
+# always wins, so a project that ever needs its own destination adds one there
+# rather than editing this.
+#
+# The slug is the same one `dedalo.toml` names under `[project]
+# open_collective`, and the same collective the protocol fee is designed to
+# flow to. Keeping them one string is deliberate: a project about funding open
+# source that is funded somewhere other than where it says would be its own
+# kind of bug.
+#
+# https://opencollective.com/dedalo
+open_collective: dedalo

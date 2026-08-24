@@ -64,3 +64,20 @@ reproduction belong in the issues of the repository they affect.
 Security issues go through a private advisory on the repository concerned,
 never a public issue and never a discussion — see
 [SECURITY.md](https://github.com/dedalo-org/.github/blob/main/SECURITY.md).
+
+### Funding
+
+**→ [opencollective.com/dedalo](https://opencollective.com/dedalo)**
+
+Open Collective, because a project whose subject is transparent funding should
+be transparently funded: the ledger is public, and where the money went is a
+page anyone can read rather than a claim.
+
+This is also where the **protocol fee** is designed to flow. Every round a
+project settles routes `fees.protocol_bps` — 2.5% by default — to this
+collective, which is what is meant by the network funding itself rather than
+depending on grants. Nothing flows there yet: on-chain settlement is not live.
+
+Sponsoring is not the way to be paid *by* Dedalo. That is
+[contributing](https://github.com/dedalo-org/dedalo/blob/main/CONTRIBUTING.md) —
+merged code is what earns, and it is the whole point.

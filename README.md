@@ -11,6 +11,7 @@ Organisation-wide defaults for [`dedalo-org`](https://github.com/dedalo-org).
 | `SUPPORT.md` | Default support pointer |
 | `.github/ISSUE_TEMPLATE/` | Default issue forms |
 | `.github/PULL_REQUEST_TEMPLATE.md` | Default pull request template |
+| `.github/FUNDING.yml` | The **Sponsor** button on every repository — [Open Collective](https://opencollective.com/dedalo) |
 
 These are **fallbacks**. A repository that ships its own copy of any of these
 files overrides the version here — which is what you want for anything
