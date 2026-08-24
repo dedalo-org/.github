@@ -1,0 +1,12 @@
+# There are no workflows here today. The configuration is present anyway, so
+# that the first one added is watched from the moment it lands rather than from
+# whenever somebody remembers.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: ["*"]

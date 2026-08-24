@@ -1,0 +1,85 @@
+name: Forms
+
+# These files are organisation-wide defaults: they render on every repository
+# that ships none of its own. A form with a YAML error does not fail loudly —
+# GitHub silently falls back to a blank issue box, everywhere at once, and
+# nobody notices until somebody files a bad report.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  forms:
+    name: templates parse and declare what they must
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Validate every form
+        run: |
+          python3 - <<'PY'
+          import sys, pathlib, yaml
+
+          # GitHub's schema, reduced to what actually breaks rendering.
+          BODY_TYPES = {"markdown", "input", "textarea", "dropdown", "checkboxes"}
+          errors = []
+
+          def check(path, kind):
+              try:
+                  doc = yaml.safe_load(path.read_text())
+              except yaml.YAMLError as e:
+                  errors.append(f"{path}: not valid YAML — {e}")
+                  return
+              if not isinstance(doc, dict):
+                  errors.append(f"{path}: top level must be a mapping")
+                  return
+
+              if kind == "issue":
+                  for key in ("name", "description", "body"):
+                      if key not in doc:
+                          errors.append(f"{path}: missing `{key}`")
+              if "body" in doc:
+                  if not isinstance(doc["body"], list):
+                      errors.append(f"{path}: `body` must be a list")
+                  else:
+                      for i, item in enumerate(doc["body"]):
+                          t = (item or {}).get("type")
+                          if t not in BODY_TYPES:
+                              errors.append(f"{path}: body[{i}] has type {t!r}")
+                          if t == "markdown" and not (item.get("attributes") or {}).get("value"):
+                              errors.append(f"{path}: body[{i}] is markdown with no value")
+
+          root = pathlib.Path(".github")
+          seen = 0
+          for path in sorted(root.glob("ISSUE_TEMPLATE/*.y*ml")):
+              if path.name == "config.yml":
+                  doc = yaml.safe_load(path.read_text()) or {}
+                  for i, link in enumerate(doc.get("contact_links") or []):
+                      for key in ("name", "url", "about"):
+                          if key not in link:
+                              errors.append(f"{path}: contact_links[{i}] missing `{key}`")
+                  seen += 1
+                  continue
+              check(path, "issue")
+              seen += 1
+          for path in sorted(root.glob("DISCUSSION_TEMPLATE/*.y*ml")):
+              check(path, "discussion")
+              seen += 1
+
+          if not seen:
+              print("no forms in this repository")
+          for e in errors:
+              print(f"error: {e}", file=sys.stderr)
+          if errors:
+              sys.exit(1)
+          print(f"{seen} form(s) checked, all parse and declare what they must")
+          PY
+
