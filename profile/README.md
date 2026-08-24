@@ -29,30 +29,35 @@ check the numbers.
 - **CI/CD native** — it runs in your pipeline. No third-party dashboard, no
   invoices.
 
-**→ [dedalo-org.github.io](https://dedalo-org.github.io/)**
+**→ [dedalo-org.github.io](https://dedalo-org.github.io/)** ·
+**📖 [the handbook](https://dedalo-org.github.io/dedalo/)** ·
+**📦 [docs.rs/dedalo](https://docs.rs/dedalo)**
 
 ### Projects
 
 - **[dedalo](https://github.com/dedalo-org/dedalo)** — the protocol:
   attribution, payout plans, the hash-chained ledger, the claim contract, and
   the CLI and GitHub Action that drive them. Rust.
-  [API reference](https://dedalo-org.github.io/dedalo/api/).
+  [Handbook](https://dedalo-org.github.io/dedalo/) ·
+  [API reference](https://docs.rs/dedalo).
 - **[dedalo-nvim](https://github.com/dedalo-org/dedalo-nvim)** — attribution
   where the code is: who earns from the lines in front of you, and who wrote
   code the round would not pay. Lua.
 - **[discussions](https://github.com/orgs/dedalo-org/discussions)** — questions,
   ideas and announcements for the organisation.
 
-On-chain settlement is **not live**. The claim contract's arithmetic is proved
-by solc's model checker, and it is unaudited and undeployed; Dedalo holds no
-signing key and never signs. See
-[how funds move](https://github.com/dedalo-org/dedalo/blob/main/docs/settlement-architecture.md).
+On-chain settlement is **not live**. The vault's rules are pure Rust with a
+test per way it refuses, and the deployable that wraps them is unaudited and
+undeployed; Dedalo holds no signing key and never signs. See
+[how funds move](https://dedalo-org.github.io/dedalo/operating/multisig.html).
 
 ### Getting involved
 
 Read [CONTRIBUTING.md](https://github.com/dedalo-org/.github/blob/main/CONTRIBUTING.md)
-for how work lands here, and each repository's own guide for its build and test
-loop. Questions belong in
+for how work lands here, each repository's own guide for its build and test
+loop, and the handbook's
+[development chapter](https://dedalo-org.github.io/dedalo/contributing/development.html)
+for the three gates that catch people out. Questions belong in
 [discussions](https://github.com/orgs/dedalo-org/discussions); bugs with a
 reproduction belong in the issues of the repository they affect.
 
