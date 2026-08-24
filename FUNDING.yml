@@ -5,11 +5,17 @@
 # always wins, so a project that ever needs its own destination adds one there
 # rather than editing this.
 #
-# At the repository root, beside the other org-wide defaults, and not in
-# `.github/`. A FUNDING.yml inside this repository's own `.github/` folder is
-# read as *this* repository's funding file rather than as the organisation's
-# default — which was measured, not assumed: with it there, only `.github`
-# itself showed the button and `dedalo` did not.
+# At the repository root, beside the other org-wide defaults. GitHub looks in
+# `.github/`, then the root, then `docs/`, so either of the first two works;
+# the root is where CODE_OF_CONDUCT, CONTRIBUTING, SECURITY and SUPPORT already
+# live, and `.github/` here holds templates, which are a different thing.
+#
+# This file is necessary and not sufficient. The Sponsor button also needs the
+# repository's **Sponsorships** feature switched on, per repository, under
+# Settings → General → Features. It is off by default across this organisation
+# — `showSponsorButton` is false on every repository page — it is not exposed
+# by the REST API, and no FUNDING.yml overrides it. Until somebody ticks that
+# box, this file is correct and invisible.
 #
 # The slug is the same one `dedalo.toml` names under `[project]
 # open_collective`, and the same collective the protocol fee is designed to
