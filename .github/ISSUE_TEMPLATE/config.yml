@@ -1,14 +1,24 @@
+# Contact links shown above the "new issue" form.
+#
+# This is an organisation-wide default, so every link has to be right for the
+# repository that has nothing else — not only for `dedalo`. The security link
+# used to go straight to `dedalo`'s advisory form, which sent somebody with a
+# `dedalo-nvim` vulnerability to the wrong repository. It now goes to the
+# policy, which says where to report for the repository you are in.
 blank_issues_enabled: false
 contact_links:
   - name: Report a security vulnerability
-    url: https://github.com/dedalo-org/dedalo/security/advisories/new
-    about: Never report a vulnerability in a public issue. Use a private advisory.
+    url: https://github.com/dedalo-org/.github/blob/main/SECURITY.md
+    about: Never report a vulnerability in a public issue. The policy says where to send it.
   - name: Ask a question
     url: https://github.com/orgs/dedalo-org/discussions
-    about: For anything that is not yet a bug with a reproduction.
+    about: Organisation-wide. For anything that is not yet a bug with a reproduction.
   - name: Read the handbook
     url: https://dedalo-org.github.io/dedalo/
     about: How it works, how to run a round, and what the guarantees mean.
+  - name: Frequently asked questions
+    url: https://dedalo-org.github.io/dedalo/faq.html
+    about: The short answers, including why a contributor might not have been paid.
   - name: Fund the work
     url: https://opencollective.com/dedalo
     about: Open Collective. Public ledger, so where the money went is readable.

@@ -12,18 +12,25 @@ finished branch.
 
 ## Development environment
 
-Every repository here pins its toolchain with Nix. With Nix installed:
+**Every repository here keeps its toolchain pin and nothing else.** There is no
+`flake.nix` in any of them, and no `.envrc` — the development environment lives
+one level up, in a private superproject that holds every repository as a
+submodule. That is deliberate: one copy of the pinned toolchain and the gates,
+rather than a copy per repository that drifts.
 
-```bash
-nix develop            # or `direnv allow` once, if you use direnv
-```
+So what you install depends on what the repository is, and the repository says
+so:
 
-That gives you the exact compiler and tools CI uses. Without Nix, install
-whatever the repository's pinned toolchain file names.
+| If it has | Install |
+| --- | --- |
+| `rust-toolchain.toml` | [`rustup`](https://rustup.rs), which reads it on entry |
+| `.stylua.toml` / `.luacheckrc` | `stylua` and `luacheck`, plus Neovim to run the tests |
+| neither | Python 3 is enough; the checks are scripts |
 
-Before opening a pull request, run the repository's full local gate — usually
-`nix flake check`, which runs the same checks CI does. If it passes locally,
-CI will pass.
+Run whatever the repository's own `CONTRIBUTING.md` or README names before
+opening a pull request. Where there is a `scripts/check-*.py`, running it is
+the check. CI runs the same things, so a green run locally is a green run
+there.
 
 ## Branches and commit messages
 
@@ -68,8 +75,13 @@ unreviewed for a week is fair game to ping.
 ## Security
 
 Never report a vulnerability in a public issue or pull request. See
-[SECURITY.md](SECURITY.md).
+[the security policy][security] — and note that a repository with its own
+`SECURITY.md` is describing a different threat model from this one, so read
+that repository's copy where it has one.
 
 ## Conduct
 
-Participating means agreeing to the [code of conduct](CODE_OF_CONDUCT.md).
+Participating means agreeing to the [code of conduct][conduct].
+
+[security]: https://github.com/dedalo-org/.github/blob/main/SECURITY.md
+[conduct]: https://github.com/dedalo-org/.github/blob/main/CODE_OF_CONDUCT.md
