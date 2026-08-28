@@ -31,12 +31,28 @@ technical one.
 
 ## Enforcement
 
-Report concerns to the maintainers through
-[a private security advisory](https://github.com/dedalo-org/dedalo/security/advisories/new)
-if the matter is sensitive, or by opening an issue on the relevant repository
-if it is not. Maintainers will respond as promptly as they can, keep reports
-confidential where possible, and may warn, temporarily block, or permanently
-ban anyone whose behaviour warrants it.
+**Report privately to the maintainer**, by the contact method on
+[@4137314's GitHub profile](https://github.com/4137314). The maintainers who
+can act on a report are listed in [MAINTAINERS.md][maintainers].
+
+This used to point at `dedalo`'s security advisory form. That was wrong twice
+over: a conduct report is not a vulnerability report, and it named one
+repository from a document that applies to every repository here.
+
+Reports are kept confidential as far as acting on them allows, and the response
+may be a warning, a temporary block, or a permanent ban.
+
+### The limitation, stated rather than discovered
+
+**There is one maintainer.** So a report *about* that maintainer has nowhere
+independent to go inside this organisation, and no amount of procedure here
+changes that. The escalation path in that case is
+[GitHub's own abuse reporting][github-report], which is outside this
+organisation's control — which is the point.
+
+A code of conduct that promises an impartial process it cannot provide is worse
+than one that says what it actually has. When there is a second maintainer,
+this section changes.
 
 Maintainers who do not uphold this document in good faith may themselves face
 consequences decided by the rest of the maintainer group.
@@ -45,3 +61,6 @@ consequences decided by the rest of the maintainer group.
 
 Adapted in spirit from the [Contributor Covenant](https://www.contributor-covenant.org),
 version 2.1.
+
+[maintainers]: https://github.com/dedalo-org/dedalo/blob/main/MAINTAINERS.md
+[github-report]: https://docs.github.com/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam
